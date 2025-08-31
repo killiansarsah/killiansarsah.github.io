@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Killian Sarsah - Portfolio</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+  tailwind.config={
+    theme:{
+      extend:{
+        colors:{
+          primary:'#6d28d9',
+          secondary:'#4f46e5'
+        },
+        borderRadius:{
+          'none':'0px',
+          'sm':'8px',
+          DEFAULT:'12px',
+          'md':'16px',
+          'lg':'20px',
+          'xl':'24px',
+          '2xl':'28px',
+          '3xl':'32px',
+          'full':'9999px',
+          'button':'12px'
+        }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen">
+<div class="cursor-dot hidden md:block"></div>
+<div class="cursor-outline hidden md:block"></div>
+<canvas id="hero-canvas"></canvas>
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
+<div class="glass px-3 sm:px-6 py-4">
+<div class="container mx-auto flex justify-between items-center">
+<a href="#" class="text-3xl font-['Pacifico'] text-gradient">KS</a>
+<nav class="hidden md:flex space-x-8">
+<a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300 relative group">
+About
+<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+</a>
+<a href="#services" class="text-gray-300 hover:text-white transition-colors duration-300 relative group">
+Services
+<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+</a>
+<a href="#portfolio" class="text-gray-300 hover:text-white transition-colors duration-300 relative group">
+Portfolio
+<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+</a>
+<a href="#experience" class="text-gray-300 hover:text-white transition-colors duration-300 relative group">
+Experience
+<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+</a>
+<a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300 relative group">
+Contact
+<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+</a>
+</nav>
+<button class="md:hidden w-10 h-10 flex items-center justify-center" id="mobile-menu-button">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</div>
+</div>
+<div class="glass px-4 py-4 absolute w-full hidden right-0 left-0 mt-1" id="mobile-menu">
+<nav class="flex flex-col space-y-4">
+<a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300 py-2">About</a>
+<a href="#services" class="text-gray-300 hover:text-white transition-colors duration-300 py-2">Services</a>
+<a href="#portfolio" class="text-gray-300 hover:text-white transition-colors duration-300 py-2">Portfolio</a>
+<a href="#experience" class="text-gray-300 hover:text-white transition-colors duration-300 py-2">Experience</a>
+<a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300 py-2">Contact</a>
+</nav>
+</div>
+</header>
+<section class="h-screen flex items-center justify-center relative overflow-hidden" id="hero">
+<div class="container mx-auto px-4 sm:px-6 text-center relative z-10 max-w-full w-full">
+<h1 class="text-5xl md:text-7xl font-bold mb-6 opacity-0 transform translate-y-10 transition-all duration-1000" id="hero-title">
+<span class="text-gradient">Killian Sarsah</span>
+</h1>
+<div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10 opacity-0 transform translate-y-10 transition-all duration-1000 delay-300" id="hero-subtitle">
+<div class="flex items-center px-4 py-2 rounded-full glass">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-cloud-line text-primary"></i>
+</div>
+<span>Cloud Engineer</span>
+</div>
+<div class="flex items-center px-4 py-2 rounded-full glass">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-shield-keyhole-line text-primary"></i>
+</div>
+<span>Cybersecurity Expert</span>
+</div>
+<div class="flex items-center px-4 py-2 rounded-full glass">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-code-s-slash-line text-primary"></i>
+</div>
+<span>Full-Stack Developer</span>
+</div>
+</div>
+<div class="opacity-0 transform translate-y-10 transition-all duration-1000 delay-600" id="hero-cta">
+<a href="#contact" class="px-8 py-3 bg-primary text-white rounded-button inline-block shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:transform hover:scale-105 !rounded-button whitespace-nowrap">Get in Touch</a>
+</div>
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+<a href="#about" class="w-10 h-10 rounded-full glass flex items-center justify-center">
+<i class="ri-arrow-down-line"></i>
+</a>
+</div>
+</div>
+<div class="absolute right-10 bottom-20 opacity-0 transform translate-y-10 transition-all duration-1000 delay-900 hidden lg:block" id="hero-cube">
+<div class="w-32 h-32 relative rotate-slow perspective-[1000px]">
+<div class="absolute inset-0 flex items-center justify-center transform rotate-y-180 backface-hidden">
+<div class="w-16 h-16 flex items-center justify-center">
+<i class="ri-amazon-line text-4xl text-[#FF9900]"></i>
+</div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center transform rotate-y-90 backface-hidden">
+<div class="w-16 h-16 flex items-center justify-center">
+<i class="ri-reactjs-line text-4xl text-[#61DAFB]"></i>
+</div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center transform rotate-y-270 backface-hidden">
+<div class="w-16 h-16 flex items-center justify-center">
+<i class="ri-lock-password-line text-4xl text-[#E34F26]"></i>
+</div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center transform rotate-x-90 backface-hidden">
+<div class="w-16 h-16 flex items-center justify-center">
+<i class="ri-database-2-line text-4xl text-[#336791]"></i>
+</div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center transform rotate-x-270 backface-hidden">
+<div class="w-16 h-16 flex items-center justify-center">
+<i class="ri-terminal-box-line text-4xl text-[#3776AB]"></i>
+</div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center backface-hidden">
+<div class="w-16 h-16 flex items-center justify-center">
+<i class="ri-server-line text-4xl text-[#339933]"></i>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-20 relative" id="about">
+<div class="container mx-auto px-4 sm:px-6 max-w-full overflow-hidden">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 opacity-0 transform translate-y-10 transition-all duration-1000" id="about-title">
+About <span class="text-gradient">Me</span>
+</h2>
+<div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center">
+<div class="lg:w-1/2 w-full px-4 opacity-0 transform translate-x-10 transition-all duration-1000" id="about-image">
+<div class="relative">
+<div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden mx-auto border-4 border-primary/30 p-2">
+<div class="w-full h-full rounded-full overflow-hidden">
+<img src="https://static.readdy.ai/image/c0f50fd670325e376003a26c852fdfd7/61df2824e9bc8794702cb5f50da1b4ba.png" alt="Killian Sarsah" class="w-full h-full object-cover object-top">
+</div>
+</div>
+<div class="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full glass flex items-center justify-center floating">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-aws-line text-2xl text-primary"></i>
+</div>
+</div>
+<div class="absolute -bottom-4 -left-4 w-20 h-20 bg-primary/10 rounded-full glass flex items-center justify-center floating" style="animation-delay: 1s;">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-shield-keyhole-line text-2xl text-primary"></i>
+</div>
+</div>
+<div class="absolute top-1/2 -right-10 transform -translate-y-1/2 w-20 h-20 bg-primary/10 rounded-full glass flex items-center justify-center floating" style="animation-delay: 2s;">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-code-s-slash-line text-2xl text-primary"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 opacity-0 transform -translate-x-10 transition-all duration-1000" id="about-content">
+<h3 class="text-2xl font-bold mb-4">Cloud Engineer, Cybersecurity Expert & Full-Stack Developer</h3>
+<p class="text-gray-300 mb-6">
+I'm a passionate technology professional with over 8 years of experience specializing in AWS cloud architecture, cybersecurity solutions, and full-stack development. My expertise lies in designing secure, scalable cloud infrastructures and implementing robust security measures to protect digital assets.
+</p>
+<p class="text-gray-300 mb-8">
+With a strong background in both defensive and offensive security practices, I help organizations strengthen their security posture while leveraging cutting-edge cloud technologies. I'm dedicated to creating innovative solutions that balance security, performance, and user experience.
+</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3">
+<i class="ri-user-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium">Name</h4>
+<p class="text-gray-400">Killian Sarsah</p>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium">Email</h4>
+<p class="text-gray-400">killiansarsah@gmail.com</p>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium">Location</h4>
+<p class="text-gray-400">Ghana-Accra</p>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3">
+<i class="ri-global-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium">Languages</h4>
+<p class="text-gray-400">English
+</p>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-4">
+<a href="#contact" class="px-6 py-2.5 bg-primary text-white rounded-button inline-block shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:transform hover:scale-105 !rounded-button whitespace-nowrap">Hire Me</a>
+<a href="Ready CV.pdf" download class="px-6 py-2.5 border border-primary/30 text-white rounded-button inline-block hover:bg-primary/10 transition-all duration-300 !rounded-button whitespace-nowrap">Download CV</a>
+</div>
+</div>
+</div>
+<div class="mt-20">
+<h3 class="text-2xl font-bold mb-8 text-center opacity-0 transform translate-y-10 transition-all duration-1000" id="skills-title">My Skills</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+<div class="glass p-6 rounded opacity-0 transform translate-y-10 transition-all duration-1000" id="skill-1">
+<h4 class="text-xl font-semibold mb-4">Cloud Computing</h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1">
+<span>AWS</span>
+<span>95%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 0%;" data-width="95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span>Azure</span>
+<span>85%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 0%;" data-width="85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span>Google Cloud</span>
+<span>80%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 0%;" data-width="80%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="glass p-6 rounded opacity-0 transform translate-y-10 transition-all duration-1000" id="skill-2" style="transition-delay: 200ms;">
+<h4 class="text-xl font-semibold mb-4">Cybersecurity</h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1">
+<span>Network Security</span>
+<span>90%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 0%;" data-width="90%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span>Penetration Testing</span>
+<span>85%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 0%;" data-width="85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span>Security Architecture</span>
+<span>92%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 0%;" data-width="92%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="glass p-6 rounded opacity-0 transform translate-y-10 transition-all duration-1000" id="skill-3" style="transition-delay: 400ms;">
+<h4 class="text-xl font-semibold mb-4">Development</h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1">
+<span>HTML/CSS/JavaScript/Node.js</span>
+<span>88%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 0%;" data-width="88%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span>Python</span>
+<span>90%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 0%;" data-width="90%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span>React/React Native</span>
+<span>85%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 0%;" data-width="85%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-gradient relative" id="services">
+<div class="container mx-auto px-4 sm:px-6 max-w-full overflow-hidden">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 opacity-0 transform translate-y-10 transition-all duration-1000" id="services-title">
+My <span class="text-gradient">Services</span>
+</h2>
+<p class="text-gray-300 max-w-2xl mx-auto opacity-0 transform translate-y-10 transition-all duration-1000" id="services-subtitle">
+I offer comprehensive solutions across cloud engineering, cybersecurity, and development to help businesses thrive in the digital landscape.
+</p>
+<div class="w-20 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+<div class="glass p-8 rounded card-hover opacity-0 transform translate-y-10 transition-all duration-1000" id="service-1">
+<div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-cloud-line text-3xl text-primary"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4 text-center">AWS Cloud Engineering</h3>
+<p class="text-gray-300 text-center mb-6">
+Expert design and implementation of secure, scalable AWS cloud infrastructures tailored to your business needs.
+</p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Cloud Architecture Design</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Infrastructure as Code</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Serverless Applications</span>
+</li>
+</ul>
+<a href="#contact" class="text-primary flex items-center justify-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+<div class="glass p-8 rounded card-hover opacity-0 transform translate-y-10 transition-all duration-1000" id="service-2" style="transition-delay: 200ms;">
+<div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-shield-keyhole-line text-3xl text-primary"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4 text-center">Cybersecurity</h3>
+<p class="text-gray-300 text-center mb-6">
+Comprehensive security solutions to protect your digital assets from evolving cyber threats.
+</p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Penetration Testing</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Security Assessments</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Incident Response</span>
+</li>
+</ul>
+<a href="#contact" class="text-primary flex items-center justify-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+<div class="glass p-8 rounded card-hover opacity-0 transform translate-y-10 transition-all duration-1000" id="service-3" style="transition-delay: 400ms;">
+<div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-code-s-slash-line text-3xl text-primary"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4 text-center">Web Development</h3>
+<p class="text-gray-300 text-center mb-6">
+Custom web applications and responsive websites built with modern technologies and best practices.
+</p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Full-Stack Development</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">API Development</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">E-commerce Solutions</span>
+</li>
+</ul>
+<a href="#contact" class="text-primary flex items-center justify-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+<div class="glass p-8 rounded card-hover opacity-0 transform translate-y-10 transition-all duration-1000" id="service-4" style="transition-delay: 600ms;">
+<div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-smartphone-line text-3xl text-primary"></i>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4 text-center">App Development</h3>
+<p class="text-gray-300 text-center mb-6">
+Native and cross-platform mobile applications that deliver exceptional user experiences.
+</p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">iOS & Android Apps</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">React Native Development</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">App Maintenance & Support</span>
+</li>
+</ul>
+<a href="#contact" class="text-primary flex items-center justify-center hover:underline">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 relative" id="portfolio">
+<div class="container mx-auto px-4 sm:px-6 max-w-full overflow-hidden">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-title">
+My <span class="text-gradient">Portfolio</span>
+</h2>
+<p class="text-gray-300 max-w-2xl mx-auto opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-subtitle">
+Explore a selection of my recent projects showcasing my expertise in cloud engineering, cybersecurity, and development.
+</p>
+<div class="w-20 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+</div>
+<div class="flex justify-center mb-10 opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-filter">
+<div class="inline-flex bg-gray-800/50 rounded-full p-1">
+<button class="px-4 py-2 rounded-full bg-primary text-white transition-all duration-300 whitespace-nowrap !rounded-button" data-filter="all">All</button>
+<button class="px-4 py-2 rounded-full text-gray-300 hover:text-white transition-all duration-300 whitespace-nowrap !rounded-button" data-filter="cloud">Cloud</button>
+<button class="px-4 py-2 rounded-full text-gray-300 hover:text-white transition-all duration-300 whitespace-nowrap !rounded-button" data-filter="security">Security</button>
+<button class="px-4 py-2 rounded-full text-gray-300 hover:text-white transition-all duration-300 whitespace-nowrap !rounded-button" data-filter="web">Web Dev</button>
+<button class="px-4 py-2 rounded-full text-gray-300 hover:text-white transition-all duration-300 whitespace-nowrap !rounded-button" data-filter="app">App Dev</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="cloud" id="portfolio-1">
+<div class="glass rounded overflow-hidden card-hover">
+<div class="relative h-64 overflow-hidden">
+<img src="Mi.png" alt="Cloud Migration Project" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-eye-line text-white"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Enterprise Cloud Migration</h3>
+<p class="text-gray-300 mb-4">
+Designed a future-ready cloud architecture proposal focused on high availability, cost efficiency, and strong security for enterprise workloads. The migration will modernize the existing infrastructure into a scalable, secure, and optimized cloud environment capable of seamlessly handling traffic fluctuations ranging from 100,000 to 800,000 requests.
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AWS</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Terraform</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">CI/CD</span>
+</div>
+</div>
+</div>
+</div>
+<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="cloud" id="portfolio-2" style="transition-delay: 200ms;">
+<div class="glass rounded overflow-hidden card-hover">
+<div class="relative h-64 overflow-hidden">
+<img src="Deployment with AWS Amplify.png" alt="Cloud Hosting & Deployment" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-eye-line text-white"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Cloud Hosting & Deployment</h3>
+<p class="text-gray-300 mb-4">
+Successfully delivered a modern, responsive website with minimal configuration overhead, showcasing expertise in cloud deployment automation and scalable hosting solutions.
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AWS Amplify</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">S3</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">HTML</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">CSS</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">JavaScript</span>
+</div>
+</div>
+</div>
+</div>
+<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="web" id="portfolio-3" style="transition-delay: 400ms;">
+<div class="glass rounded overflow-hidden card-hover">
+<div class="relative h-64 overflow-hidden">
+<img src="Dezag Homepage.png" alt="Dezag Insurance Brokers Website" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-eye-line text-white"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Dezag Insurance Brokers Website</h3>
+<p class="text-gray-300 mb-4">
+Professional website for insurance brokerage services, providing comprehensive information about insurance products and client services.
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">HTML</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">CSS</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">JavaScript</span>
+</div>
+</div>
+</div>
+</div>
+<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="app" id="portfolio-4" style="transition-delay: 600ms;">
+<div class="glass rounded overflow-hidden card-hover">
+<div class="relative h-64 overflow-hidden">
+<img src="Compass (Custom).png" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-eye-line text-white"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Compass App</h3>
+<p class="text-gray-300 mb-4">
+Developed a lightweight Android application that serves as a digital compass, utilizing the device's built-in accelerometer and magnetometer sensors.
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Java/Kotlin</span>
+</div>
+</div>
+</div>
+</div>
+<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="security" id="portfolio-5" style="transition-delay: 800ms;">
+<div class="glass rounded overflow-hidden card-hover">
+<div class="relative h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=secure%20authentication%20system%20interface%2C%20multi-factor%20authentication%20visualization%2C%20biometric%20security%2C%20identity%20verification%20process%2C%20professional%20cybersecurity%20solution%2C%20access%20control%20dashboard&width=600&height=400&seq=6&orientation=landscape" alt="Secure Authentication System" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-eye-line text-white"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Secure Authentication System</h3>
+<p class="text-gray-300 mb-4">
+Developed a multi-factor authentication system with biometric verification for a financial institution.
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">OAuth</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Biometrics</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Encryption</span>
+</div>
+</div>
+</div>
+</div>
+<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="cloud" id="portfolio-6" style="transition-delay: 1000ms;">
+<div class="glass rounded overflow-hidden card-hover">
+<div class="relative h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=serverless%20architecture%20diagram%2C%20microservices%20infrastructure%2C%20AWS%20Lambda%20functions%20visualization%2C%20cloud-native%20application%20design%2C%20technical%20illustration%20of%20event-driven%20architecture&width=600&height=400&seq=7&orientation=landscape" alt="Serverless Architecture" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-eye-line text-white"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Serverless Architecture</h3>
+<p class="text-gray-300 mb-4">
+Designed a serverless microservices architecture for a SaaS platform, reducing operational costs by 40%.
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AWS Lambda</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">API Gateway</span>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">DynamoDB</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-12 opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-more">
+<a href="#" class="px-8 py-3 border border-primary/30 text-white rounded-button inline-block hover:bg-primary/10 transition-all duration-300 !rounded-button whitespace-nowrap">
+View More Projects
+</a>
+</div>
+</div>
+</section>
+<section class="py-20 bg-gradient relative" id="experience">
+<div class="container mx-auto px-4 sm:px-6 max-w-full overflow-hidden">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 opacity-0 transform translate-y-10 transition-all duration-1000" id="experience-title">
+Work <span class="text-gradient">Experience</span>
+</h2>
+<p class="text-gray-300 max-w-2xl mx-auto opacity-0 transform translate-y-10 transition-all duration-1000" id="experience-subtitle">
+My professional journey in cloud engineering, cybersecurity, and development.
+</p>
+<div class="w-20 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+</div>
+<div class="relative max-w-3xl mx-auto pl-10">
+<div class="timeline-line"></div>
+<div class="timeline-item relative mb-16 opacity-0 transform translate-y-10 transition-all duration-1000" id="experience-1">
+<div class="glass p-6 rounded">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+<h3 class="text-xl font-bold">Software Developer</h3>
+<div class="flex items-center mt-2 md:mt-0">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-building-line text-primary"></i>
+</div>
+<span class="text-primary">Elira Technologies</span>
+</div>
+</div>
+<div class="flex items-center mb-4">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-calendar-line text-gray-400"></i>
+</div>
+<span class="text-gray-400">2025 – Present</span>
+<span class="mx-2 text-gray-500">|</span>
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-map-pin-line text-gray-400"></i>
+</div>
+<span class="text-gray-400">Accra, Ghana</span>
+</div>
+
+<div class="space-y-4">
+<div>
+<h5 class="text-lg font-semibold text-primary mb-2">Ghanaian Language Keyboard</h5>
+<p class="text-gray-300 mb-3">
+Designed and developed a custom keyboard application supporting Ghanaian languages, enabling improved accessibility and inclusivity for native speakers.
+</p>
+<ul class="space-y-2 mb-4">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Implemented localized input methods, predictive text, and accurate character mapping for seamless typing experiences</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Worked with designers and users to ensure a culturally relevant and user-friendly interface</span>
+</li>
+</ul>
+</div>
+
+<div>
+<h5 class="text-lg font-semibold text-primary mb-2">School Management System</h5>
+<p class="text-gray-300 mb-3">
+Collaborated on the development of a comprehensive school management platform, streamlining student enrollment, attendance tracking, grading, and parent-teacher communication.
+</p>
+<ul class="space-y-2 mb-4">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Built modular features such as student dashboards, fee management, and reporting tools to enhance efficiency for school administrators</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Conducted testing and pilot rollouts in local schools to gather feedback and refine usability</span>
+</li>
+</ul>
+</div>
+
+<div class="p-4 bg-primary/10 rounded-lg border border-primary/20">
+<p class="text-sm text-primary font-semibold mb-2">Key Impact:</p>
+<p class="text-gray-300 text-sm">
+Advanced Elira's mission of creating innovative, locally relevant software solutions by delivering tools that support education systems and digital inclusivity in Ghana.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="timeline-item relative mb-16 opacity-0 transform translate-y-10 transition-all duration-1000" id="experience-2">
+<div class="glass p-6 rounded">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+<h3 class="text-xl font-bold">Data Entry Specialist</h3>
+<div class="flex items-center mt-2 md:mt-0">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-building-line text-primary"></i>
+</div>
+<span class="text-primary">Eliplus Micro Credit</span>
+</div>
+</div>
+<div class="flex items-center mb-4">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-calendar-line text-gray-400"></i>
+</div>
+<span class="text-gray-400">Apr 2022 – Oct 2023</span>
+<span class="mx-2 text-gray-500">|</span>
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-map-pin-line text-gray-400"></i>
+</div>
+<span class="text-gray-400">Kpando, Volta Region</span>
+</div>
+<p class="text-gray-300 mb-4">
+Accurately entered loan applications, client information, and financial transactions into the company's database while maintaining strict data integrity and compliance with organizational standards.
+</p>
+<ul class="space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Set up and maintained data tables, databases, and spreadsheets to support financial reporting and business analysis</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Ensured timely updates and verification of client records, reducing errors and improving overall data accuracy</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Assisted in preparing financial reports and summaries to support management's decision-making processes</span>
+</li>
+</ul>
+
+<div class="mt-4 p-4 bg-primary/10 rounded-lg border border-primary/20">
+<p class="text-sm text-primary font-semibold mb-2">Key Impact:</p>
+<p class="text-gray-300 text-sm">
+Improved the efficiency and accuracy of loan processing, ensuring reliable financial data for audits and regulatory reporting.
+</p>
+</div>
+</div>
+</div>
+<div class="timeline-item relative mb-16 opacity-0 transform translate-y-10 transition-all duration-1000" id="experience-3">
+<div class="glass p-6 rounded">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+<h3 class="text-xl font-bold">IT Support Specialist</h3>
+<div class="flex items-center mt-2 md:mt-0">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-building-line text-primary"></i>
+</div>
+<span class="text-primary">Solutions Providers</span>
+</div>
+</div>
+<div class="flex items-center mb-4">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-calendar-line text-gray-400"></i>
+</div>
+<span class="text-gray-400">Nov 2023 – May 2024</span>
+<span class="mx-2 text-gray-500">|</span>
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-map-pin-line text-gray-400"></i>
+</div>
+<span class="text-gray-400">Kpando, Volta Region</span>
+</div>
+<p class="text-gray-300 mb-4">
+Delivered IT support services to staff and clients, troubleshooting hardware, software, and network-related issues.
+</p>
+<ul class="space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Taught programming fundamentals (loops, conditionals, and functions) using Python and Scratch, fostering problem-solving and computational thinking among learners</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Assisted in setting up and maintaining computer systems, ensuring smooth operations for day-to-day activities</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span class="text-gray-300">Provided user training sessions on digital tools and applications, improving digital literacy and efficiency</span>
+</li>
+</ul>
+
+<div class="mt-4 p-4 bg-primary/10 rounded-lg border border-primary/20">
+<p class="text-sm text-primary font-semibold mb-2">Key Impact:</p>
+<p class="text-gray-300 text-sm">
+Enhanced both organizational IT operations and community programming skills by combining technical support with hands-on coding education.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-8 opacity-0 transform translate-y-10 transition-all duration-1000" id="experience-more">
+<a href="#" class="px-8 py-3 border border-primary/30 text-white rounded-button inline-block hover:bg-primary/10 transition-all duration-300 !rounded-button whitespace-nowrap">
+View Full Resume
+</a>
+</div>
+</div>
+</section>
+<section class="py-20 relative" id="contact">
+<div class="container mx-auto px-4 sm:px-6 max-w-full overflow-hidden">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 opacity-0 transform translate-y-10 transition-all duration-1000" id="contact-title">
+Get In <span class="text-gradient">Touch</span>
+</h2>
+<p class="text-gray-300 max-w-2xl mx-auto opacity-0 transform translate-y-10 transition-all duration-1000" id="contact-subtitle">
+Have a project in mind or want to discuss how I can help your business? Let's connect!
+</p>
+<div class="w-20 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+</div>
+<div class="flex flex-col lg:flex-row gap-10">
+<div class="lg:w-1/2 opacity-0 transform translate-x-10 transition-all duration-1000" id="contact-form">
+<div class="glass p-8 rounded">
+<h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+<!-- 
+    =======================================================================
+    This is a working contact form. To receive email, 
+    Replace YOUR_ACCESS_KEY_HERE with your actual Access Key.
+    Create Access Key here 👉 https://web3forms.com/
+    =======================================================================
+ -->
+<form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+<input type="hidden" name="access_key" value="25b6f218-3cf7-4c55-af23-0a9a8c34cb6f" />
+<input type="hidden" name="subject" value="New Contact Form Submission from Portfolio" />
+<input type="checkbox" name="botcheck" id="" style="display: none;" />
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="first_name" class="block text-gray-300 mb-2">First Name</label>
+<input type="text" name="name" id="first_name" placeholder="John" required class="w-full px-4 py-3 rounded focus:outline-none text-sm bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20">
+</div>
+<div>
+<label for="last_name" class="block text-gray-300 mb-2">Last Name</label>
+<input type="text" name="last_name" id="last_name" placeholder="Doe" required class="w-full px-4 py-3 rounded focus:outline-none text-sm bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20">
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="email" class="block text-gray-300 mb-2">Email Address</label>
+<input type="email" name="email" id="email" placeholder="you@gmail.com" required class="w-full px-4 py-3 rounded focus:outline-none text-sm bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20">
+</div>
+<div>
+<label for="phone" class="block text-gray-300 mb-2">Phone Number</label>
+<input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-4 py-3 rounded focus:outline-none text-sm bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20">
+</div>
+</div>
+
+<div class="mb-6">
+<label for="message" class="block text-gray-300 mb-2">Your Message</label>
+<textarea rows="5" name="message" id="message" placeholder="Tell me about your project..." class="w-full px-4 py-3 rounded focus:outline-none text-sm bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20" required></textarea>
+</div>
+
+<div class="mb-6">
+<button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-button shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 !rounded-button whitespace-nowrap">
+Send Message
+</button>
+</div>
+
+<p class="text-base text-center text-gray-300" id="result"></p>
+</form>
+</div>
+</div>
+<div class="lg:w-1/2 opacity-0 transform -translate-x-10 transition-all duration-1000" id="contact-info">
+<div class="glass p-8 rounded mb-8">
+<h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+<div class="space-y-6">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+</div>
+<div>
+<h4 class="font-medium mb-1">Location</h4>
+<p class="text-gray-300">Ghana-Accra</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-mail-line text-primary"></i>
+</div>
+</div>
+<div>
+<h4 class="font-medium mb-1">Email</h4>
+<p class="text-gray-300">killiansarsah@gmailcom</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-phone-line text-primary"></i>
+</div>
+</div>
+<div>
+<h4 class="font-medium mb-1">Phone</h4>
+<p class="text-gray-300">+233 558617432</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-time-line text-primary"></i>
+</div>
+</div>
+<div>
+<h4 class="font-medium mb-1">Working Hours</h4>
+<p class="text-gray-300">Monday - Saturday: 8 AM - 6 PM PST</p>
+</div>
+</div>
+</div>
+</div>
+<div class="glass p-8 rounded">
+<h3 class="text-2xl font-bold mb-6">Connect With Me</h3>
+<div class="flex space-x-4">
+<a href="https://www.linkedin.com/in/killiansarsah/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/30 transition-colors duration-300">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-linkedin-fill text-primary"></i>
+</div>
+</a>
+<a href="https://github.com/killiansarsah" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/30 transition-colors duration-300">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-github-fill text-primary"></i>
+</div>
+</a>
+<a href="https://x.com/Prinxkhay" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/30 transition-colors duration-300">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-twitter-fill text-primary"></i>
+</div>
+</a>
+</div>
+<div class="mt-8">
+<h4 class="font-medium mb-4">My Location</h4>
+<div class="w-full h-64 rounded overflow-hidden">
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3746.3862831996535!2d-0.2735762999671204!3d5.531295436286222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sgh!4v1756326145769!5m2!1sen!2sgh" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="py-10 bg-gradient relative">
+<div class="container mx-auto px-4 sm:px-6 max-w-full overflow-hidden">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="mb-6 md:mb-0">
+<a href="#" class="text-3xl font-['Pacifico'] text-gradient">KS</a>
+<p class="text-gray-300 mt-2">Cloud Engineer & Cybersecurity Expert</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0">
+<a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+<a href="#services" class="text-gray-300 hover:text-white transition-colors duration-300">Services</a>
+<a href="#portfolio" class="text-gray-300 hover:text-white transition-colors duration-300">Portfolio</a>
+<a href="#experience" class="text-gray-300 hover:text-white transition-colors duration-300">Experience</a>
+<a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+</div>
+<div>
+<a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-up-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Killian Sarsah. All rights reserved.</p>
+<div class="flex items-center space-x-4">
+<span class="text-gray-400 text-sm">Payment Methods:</span>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-visa-line text-xl text-gray-300"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-mastercard-line text-xl text-gray-300"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-paypal-line text-xl text-gray-300"></i>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- Reference to external JavaScript file -->
+<script src="script.js"></script>
+</body>
+</html>
