@@ -1,5 +1,5 @@
 /* General Styles */
-body {
+html, body {
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
   color: white;
@@ -38,7 +38,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 1;
+  pointer-events: none;
   width: 100%;
   height: 100vh;
 }
@@ -130,6 +131,7 @@ body {
 
 .rotate-slow {
   animation: rotate 20s linear infinite;
+  transform-style: preserve-3d;
 }
 
 @keyframes rotate {
@@ -180,31 +182,527 @@ input:focus, textarea:focus {
   background-position: center;
 }
 
-/* 3D transforms */
-.perspective-\[1000px\] {
+/* 3D Tech Cube */
+.cube-scene {
   perspective: 1000px;
+  width: 128px;
+  height: 128px;
 }
 
-.rotate-y-90 {
-  transform: rotateY(90deg);
+.cube-3d {
+  width: 128px;
+  height: 128px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 16s linear infinite;
 }
 
-.rotate-y-180 {
-  transform: rotateY(180deg);
+@keyframes rotateCube {
+  0% {
+    transform: rotateX(15deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateX(-15deg) rotateY(180deg);
+  }
+  100% {
+    transform: rotateX(15deg) rotateY(360deg);
+  }
 }
 
-.rotate-y-270 {
-  transform: rotateY(270deg);
+.cube-face {
+  position: absolute;
+  inset: 0;
+  width: 128px;
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(109, 40, 217, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backface-visibility: visible;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.rotate-x-90 {
-  transform: rotateX(90deg);
+.cube-face:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 12px 40px rgba(109, 40, 217, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-.rotate-x-270 {
-  transform: rotateX(270deg);
+.cube-face-front  { transform: rotateY(0deg) translateZ(64px) !important; }
+.cube-face-back   { transform: rotateY(180deg) translateZ(64px) !important; }
+.cube-face-right  { transform: rotateY(90deg) translateZ(64px) !important; }
+.cube-face-left   { transform: rotateY(270deg) translateZ(64px) !important; }
+.cube-face-top    { transform: rotateX(90deg) translateZ(64px) !important; }
+.cube-face-bottom { transform: rotateX(-90deg) translateZ(64px) !important; }
+
+/* ==========================================================================
+   Studio Engineering Design System (Linear / Vercel Aesthetic)
+   ========================================================================== */
+
+/* Spotlight Interactive Cards */
+.spotlight-card {
+  position: relative;
+  background: #0d0d12;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.backface-hidden {
-  backface-visibility: hidden;
+.spotlight-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8);
 }
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    550px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(255, 255, 255, 0.22),
+    transparent 45%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    450px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(255, 255, 255, 0.035),
+    transparent 55%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+/* Subtle Technical Grid Overlay for Hero Cards */
+.tech-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Badges & System Tags */
+.mono-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #a1a1aa;
+}
+
+.mono-badge .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+}
+
+.mono-badge .status-dot.pulse {
+  animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+}
+
+.tech-pill:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Spec Metrics Strip */
+.metric-tile {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.metric-tile-val {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.metric-tile-lbl {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: #71717a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Samsung Galaxy S Ultra Titanium Mockup
+   ========================================================================== */
+.samsung-ultra-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  perspective: 1200px;
+}
+
+.samsung-ultra-frame {
+  position: relative;
+  width: 275px;
+  max-width: 100%;
+  background: #111115;
+  border-radius: 24px;
+  padding: 8px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.16),
+    0 0 0 3px #1d1d23,
+    0 0 0 4px rgba(255, 255, 255, 0.05),
+    0 25px 60px -15px rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.samsung-ultra-frame:hover {
+  transform: translateY(-4px) rotateX(1.5deg) rotateY(-1.5deg);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.22),
+    0 0 0 3px #272730,
+    0 0 0 4px rgba(255, 255, 255, 0.08),
+    0 35px 70px -15px rgba(0, 0, 0, 0.95);
+}
+
+/* Titanium Hardware Buttons (Right Rail) */
+.samsung-ultra-frame::before {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 85px;
+  width: 4px;
+  height: 52px;
+  background: linear-gradient(to right, #52525b, #27272a);
+  border-radius: 0 2px 2px 0;
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.6);
+}
+
+.samsung-ultra-frame::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 152px;
+  width: 4px;
+  height: 38px;
+  background: linear-gradient(to right, #52525b, #27272a);
+  border-radius: 0 2px 2px 0;
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Infinity-O Punch Hole Camera */
+.samsung-camera-punchhole {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 9px;
+  background: radial-gradient(circle at 35% 35%, #27272a 15%, #050508 75%);
+  border-radius: 50%;
+  z-index: 25;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.25), inset 0 0 2px rgba(56, 189, 248, 0.4);
+}
+
+/* Screen Display */
+.samsung-screen-container {
+  position: relative;
+  width: 100%;
+  border-radius: 17px;
+  overflow: hidden;
+  background: #000000;
+  aspect-ratio: 9 / 19.5;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.samsung-screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Studio Glass Reflection */
+.samsung-glass-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.03) 25%,
+    transparent 45%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+  border-radius: 17px;
+  z-index: 20;
+}
+
+/* Segmented Control Switcher */
+.segmented-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.screen-switcher-tab,
+.segmented-tab {
+  padding: 5px 12px;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #71717a;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.screen-switcher-tab:hover,
+.segmented-tab:hover {
+  color: #e4e4e7;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.screen-switcher-tab.active,
+.segmented-tab.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   Studio Minimalist Browser Window Mockup
+   ========================================================================== */
+.studio-browser {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0a0a0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 40px -15px rgba(0, 0, 0, 0.7);
+  transition: border-color 0.3s ease;
+}
+
+.studio-browser-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.studio-window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.studio-window-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  transition: background-color 0.2s ease;
+}
+
+.studio-browser:hover .studio-window-dot.dot-close { background: #ef4444; }
+.studio-browser:hover .studio-window-dot.dot-min { background: #eab308; }
+.studio-browser:hover .studio-window-dot.dot-max { background: #22c55e; }
+
+.studio-url-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #71717a;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Backward compatibility for existing browser classes */
+.browser-window {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #09090b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.browser-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.025);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.browser-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+.browser-address-bar {
+  margin-left: 8px;
+  flex: 1;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #71717a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   Editorial Case Study Modals (Linear / Raycast Style)
+   ========================================================================== */
+.case-study-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(5, 5, 8, 0.9);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-study-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.case-study-card {
+  width: 100%;
+  max-width: 980px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  background: #0d0d12;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.9), 0 0 1px rgba(255, 255, 255, 0.25);
+  transform: scale(0.96) translateY(16px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-study-backdrop.active .case-study-card {
+  transform: scale(1) translateY(0);
+}
+
+.case-study-card::-webkit-scrollbar {
+  width: 6px;
+}
+.case-study-card::-webkit-scrollbar-track {
+  background: rgba(13, 13, 18, 0.8);
+}
+.case-study-card::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+.case-study-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.modal-section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #71717a;
+  margin: 28px 0 16px 0;
+}
+
+.modal-section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+

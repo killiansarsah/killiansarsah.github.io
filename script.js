@@ -117,13 +117,124 @@ document.addEventListener("DOMContentLoaded", function() {
             
             portfolioItems.forEach(item => {
                 if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
+                    item.style.display = '';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translate(0)';
+                    }, 50);
                 } else {
                     item.style.display = 'none';
                 }
             });
         });
     });
+
+    // Spotlight cursor tracking (Linear / Vercel effect)
+    const spotlightCards = document.querySelectorAll('.spotlight-card');
+    spotlightCards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    // Helper function for Galaxy S Ultra screen switcher
+    function setupPhoneMockupSwitcher(containerSelector, displaySelector) {
+        const container = document.querySelector(containerSelector);
+        const display = document.querySelector(displaySelector);
+        if (!container || !display) return;
+
+        const tabs = container.querySelectorAll('.screen-switcher-tab, .segmented-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const newScreen = this.getAttribute('data-screen');
+                if (newScreen && display.getAttribute('src') !== newScreen) {
+                    display.style.opacity = '0.2';
+                    display.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        display.src = newScreen;
+                        display.style.opacity = '1';
+                        display.style.transform = 'scale(1)';
+                    }, 120);
+                }
+            });
+        });
+    }
+
+    // Initialize Galaxy S Ultra switchers for both Mopay Agent and FlowFi
+    setupPhoneMockupSwitcher('#portfolio-agentpay', '#samsung-screen-display');
+    setupPhoneMockupSwitcher('#portfolio-flowfi', '#flowfi-screen-display');
+
+    // Browser Mockup Switcher for Last Price
+    const lastPriceTabs = document.querySelectorAll('.lastprice-tab');
+    const lastPriceDisplay = document.getElementById('lastprice-screen-display');
+
+    if (lastPriceTabs.length > 0 && lastPriceDisplay) {
+        lastPriceTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                lastPriceTabs.forEach(t => {
+                    t.classList.remove('bg-amber-500', 'text-black', 'active');
+                    t.classList.add('text-gray-300');
+                });
+                this.classList.remove('text-gray-300');
+                this.classList.add('bg-amber-500', 'text-black', 'active');
+
+                const newScreen = this.getAttribute('data-screen');
+                if (newScreen && lastPriceDisplay.getAttribute('src') !== newScreen) {
+                    lastPriceDisplay.style.opacity = '0.2';
+                    setTimeout(() => {
+                        lastPriceDisplay.src = newScreen;
+                        lastPriceDisplay.style.opacity = '1';
+                    }, 120);
+                }
+            });
+        });
+    }
+
+    // Generic Modal Helper
+    function setupModal(openSelector, closeSelector, modalId) {
+        const openBtns = document.querySelectorAll(openSelector);
+        const closeBtns = document.querySelectorAll(closeSelector);
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+
+        function openModal() {
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        openBtns.forEach(btn => btn.addEventListener('click', openModal));
+        closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
+
+    // Setup Modals for Mopay Agent and FlowFi
+    setupModal('.open-case-study-btn', '.close-case-study-btn', 'agentpay-modal');
+    setupModal('.open-flowfi-modal-btn', '.close-flowfi-modal-btn', 'flowfi-modal');
     
     // Initialize Three.js scene
     initThreeJsScene();
@@ -137,7 +248,7 @@ function initThreeJsScene() {
     
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
     
     // Set initial size
     const updateSize = () => {
@@ -149,7 +260,7 @@ function initThreeJsScene() {
     
     // Add particles
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 1500;
+    const particlesCount = 1800;
     
     const posArray = new Float32Array(particlesCount * 3);
     
@@ -161,10 +272,10 @@ function initThreeJsScene() {
     
     // Material
     const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.02,
-        color: 0x6d28d9,
+        size: 0.024,
+        color: 0x8b5cf6,
         transparent: true,
-        opacity: 0.8
+        opacity: 0.85
     });
     
     // Mesh
@@ -174,10 +285,25 @@ function initThreeJsScene() {
     // Position camera
     camera.position.z = 3;
     
+    // Mouse parallax tracking
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    
+    window.addEventListener('mousemove', (event) => {
+        mouseX = (event.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (event.clientY / window.innerHeight - 0.5) * 2;
+    });
+    
     // Animation
     function animate() {
         requestAnimationFrame(animate);
-        particlesMesh.rotation.y += 0.001;
+        targetX += (mouseX - targetX) * 0.04;
+        targetY += (mouseY - targetY) * 0.04;
+        particlesMesh.rotation.y += 0.0008;
+        particlesMesh.rotation.x = targetY * 0.22;
+        particlesMesh.rotation.z = -targetX * 0.12;
         renderer.render(scene, camera);
     }
     

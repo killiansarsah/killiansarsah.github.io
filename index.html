@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Killian Sarsah - Portfolio</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2309090b'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='14' fill='%236d28d9'%3EKS%3C/text%3E%3C/svg%3E">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>
   tailwind.config={
@@ -108,7 +109,7 @@ Contact
 </div>
 </div>
 <div class="opacity-0 transform translate-y-10 transition-all duration-1000 delay-600" id="hero-cta">
-<a href="#contact" class="px-8 py-3 bg-primary text-white rounded-button inline-block shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:transform hover:scale-105 !rounded-button whitespace-nowrap">Get in Touch</a>
+<a href="#contact" class="px-8 py-3 bg-primary text-white font-medium rounded-button shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 inline-block !rounded-button whitespace-nowrap">Get in Touch</a>
 </div>
 <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
 <a href="#about" class="w-10 h-10 rounded-full glass flex items-center justify-center">
@@ -117,35 +118,37 @@ Contact
 </div>
 </div>
 <div class="absolute right-10 bottom-20 opacity-0 transform translate-y-10 transition-all duration-1000 delay-900 hidden lg:block" id="hero-cube">
-<div class="w-32 h-32 relative rotate-slow perspective-[1000px]">
-<div class="absolute inset-0 flex items-center justify-center transform rotate-y-180 backface-hidden">
+<div class="cube-scene">
+<div class="cube-3d">
+<div class="cube-face cube-face-front">
+<div class="w-16 h-16 flex items-center justify-center">
+<i class="ri-server-line text-4xl text-[#339933]"></i>
+</div>
+</div>
+<div class="cube-face cube-face-back">
 <div class="w-16 h-16 flex items-center justify-center">
 <i class="ri-amazon-line text-4xl text-[#FF9900]"></i>
 </div>
 </div>
-<div class="absolute inset-0 flex items-center justify-center transform rotate-y-90 backface-hidden">
+<div class="cube-face cube-face-right">
 <div class="w-16 h-16 flex items-center justify-center">
 <i class="ri-reactjs-line text-4xl text-[#61DAFB]"></i>
 </div>
 </div>
-<div class="absolute inset-0 flex items-center justify-center transform rotate-y-270 backface-hidden">
+<div class="cube-face cube-face-left">
 <div class="w-16 h-16 flex items-center justify-center">
 <i class="ri-lock-password-line text-4xl text-[#E34F26]"></i>
 </div>
 </div>
-<div class="absolute inset-0 flex items-center justify-center transform rotate-x-90 backface-hidden">
+<div class="cube-face cube-face-top">
 <div class="w-16 h-16 flex items-center justify-center">
 <i class="ri-database-2-line text-4xl text-[#336791]"></i>
 </div>
 </div>
-<div class="absolute inset-0 flex items-center justify-center transform rotate-x-270 backface-hidden">
+<div class="cube-face cube-face-bottom">
 <div class="w-16 h-16 flex items-center justify-center">
 <i class="ri-terminal-box-line text-4xl text-[#3776AB]"></i>
 </div>
-</div>
-<div class="absolute inset-0 flex items-center justify-center backface-hidden">
-<div class="w-16 h-16 flex items-center justify-center">
-<i class="ri-server-line text-4xl text-[#339933]"></i>
 </div>
 </div>
 </div>
@@ -165,7 +168,7 @@ About <span class="text-gradient">Me</span>
 <div class="relative">
 <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden mx-auto border-4 border-primary/30 p-2">
 <div class="w-full h-full rounded-full overflow-hidden">
-<img src="https://static.readdy.ai/image/c0f50fd670325e376003a26c852fdfd7/61df2824e9bc8794702cb5f50da1b4ba.png" alt="Killian Sarsah" class="w-full h-full object-cover object-top">
+<img src="assets/profile.jpg" alt="Killian Sarsah" class="w-full h-full object-cover" style="object-position: center 15%;">
 </div>
 </div>
 <div class="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full glass flex items-center justify-center floating">
@@ -233,8 +236,8 @@ With a strong background in both defensive and offensive security practices, I h
 </div>
 </div>
 <div class="flex flex-wrap gap-4">
-<a href="#contact" class="px-6 py-2.5 bg-primary text-white rounded-button inline-block shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:transform hover:scale-105 !rounded-button whitespace-nowrap">Hire Me</a>
-<a href="Ready CV.pdf" download class="px-6 py-2.5 border border-primary/30 text-white rounded-button inline-block hover:bg-primary/10 transition-all duration-300 !rounded-button whitespace-nowrap">Download CV</a>
+<a href="#contact" class="px-6 py-3 bg-primary text-white rounded-button shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 !rounded-button whitespace-nowrap">Hire Me</a>
+<a href="Ready CV.pdf" download class="px-6 py-3 border border-gray-600 text-white rounded-button hover:bg-white/5 transition-all duration-300 !rounded-button whitespace-nowrap">Download CV</a>
 </div>
 </div>
 </div>
@@ -504,183 +507,555 @@ Learn More
 </div>
 </div>
 </section>
-<section class="py-20 relative" id="portfolio">
-<div class="container mx-auto px-4 sm:px-6 max-w-full overflow-hidden">
-<div class="text-center mb-16">
-<h2 class="text-3xl md:text-4xl font-bold mb-4 opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-title">
-My <span class="text-gradient">Portfolio</span>
+<section class="py-24 relative" id="portfolio">
+<div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+
+<div class="text-center mb-14">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-xs text-zinc-400 uppercase tracking-wider">Portfolio</span>
+</div>
+<h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-3 opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-title">
+Selected <span class="text-gradient">Projects</span>
 </h2>
-<p class="text-gray-300 max-w-2xl mx-auto opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-subtitle">
-Explore a selection of my recent projects showcasing my expertise in cloud engineering, cybersecurity, and development.
+<p class="text-zinc-400 max-w-xl mx-auto text-sm sm:text-base opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-subtitle">
+A showcase of mobile apps, web applications, and software systems I've built.
 </p>
-<div class="w-20 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+<div class="w-12 h-0.5 bg-gradient-to-r from-primary to-indigo-500 mx-auto rounded-full mt-4"></div>
 </div>
-<div class="flex justify-center mb-10 opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-filter">
-<div class="inline-flex bg-gray-800/50 rounded-full p-1">
-<button class="px-4 py-2 rounded-full bg-primary text-white transition-all duration-300 whitespace-nowrap !rounded-button" data-filter="all">All</button>
-<button class="px-4 py-2 rounded-full text-gray-300 hover:text-white transition-all duration-300 whitespace-nowrap !rounded-button" data-filter="cloud">Cloud</button>
-<button class="px-4 py-2 rounded-full text-gray-300 hover:text-white transition-all duration-300 whitespace-nowrap !rounded-button" data-filter="security">Security</button>
-<button class="px-4 py-2 rounded-full text-gray-300 hover:text-white transition-all duration-300 whitespace-nowrap !rounded-button" data-filter="web">Web Dev</button>
-<button class="px-4 py-2 rounded-full text-gray-300 hover:text-white transition-all duration-300 whitespace-nowrap !rounded-button" data-filter="app">App Dev</button>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
-<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="cloud" id="portfolio-1">
-<div class="glass rounded overflow-hidden card-hover">
-<div class="relative h-64 overflow-hidden">
-<img src="Mi.png" alt="Cloud Migration Project" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
-<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-eye-line text-white"></i>
-</div>
-</a>
+
+<!-- Minimalist Filter Bar -->
+<div class="flex justify-center mb-12 opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-filter">
+<div class="inline-flex bg-zinc-900/80 border border-white/[0.08] rounded-full p-1 gap-1 backdrop-blur-md">
+<button class="px-4 py-1.5 rounded-full bg-primary text-white transition-all duration-200 whitespace-nowrap text-xs font-medium" data-filter="all">All (8)</button>
+<button class="px-4 py-1.5 rounded-full text-zinc-400 hover:text-white transition-all duration-200 whitespace-nowrap text-xs font-medium" data-filter="mobile">Mobile Apps</button>
+<button class="px-4 py-1.5 rounded-full text-zinc-400 hover:text-white transition-all duration-200 whitespace-nowrap text-xs font-medium" data-filter="web">Web & SaaS</button>
+<button class="px-4 py-1.5 rounded-full text-zinc-400 hover:text-white transition-all duration-200 whitespace-nowrap text-xs font-medium" data-filter="desktop">Desktop</button>
 </div>
 </div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Enterprise Cloud Migration</h3>
-<p class="text-gray-300 mb-4">
-Designed a future-ready cloud architecture proposal focused on high availability, cost efficiency, and strong security for enterprise workloads. The migration will modernize the existing infrastructure into a scalable, secure, and optimized cloud environment capable of seamlessly handling traffic fluctuations ranging from 100,000 to 800,000 requests.
-</p>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AWS</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Terraform</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">CI/CD</span>
+
+<!-- Asymmetric Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6" id="portfolio-grid">
+
+<!-- 01. Flagship Mobile Hero: Mopay Agent -->
+<div class="portfolio-item col-span-1 lg:col-span-12 spotlight-card tech-grid-bg p-6 sm:p-10 opacity-0 transform translate-y-10 transition-all duration-1000" data-category="mobile" id="portfolio-agentpay">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-8 border-b border-white/[0.06]">
+    <div class="flex items-center gap-3">
+      <span class="mono-badge">
+        <span class="status-dot pulse"></span>
+        01 / MOBILE APP
+      </span>
+      <span class="text-xs text-zinc-400 hidden sm:inline-block">Android • Kotlin</span>
+    </div>
+    <div class="flex items-center gap-2 text-xs text-emerald-400">
+      <i class="ri-checkbox-circle-fill"></i>
+      <span>In Production • 100+ Active Agents</span>
+    </div>
+  </div>
+
+  <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+    <!-- Left Column: Samsung Galaxy S Ultra Titanium Mockup -->
+    <div class="lg:w-5/12 w-full flex flex-col items-center">
+      <div class="samsung-ultra-wrapper">
+        <div class="samsung-ultra-frame">
+          <div class="samsung-camera-punchhole"></div>
+          <div class="samsung-glass-sheen"></div>
+          <div class="samsung-screen-container">
+            <img id="samsung-screen-display" src="assets/projects/mopay/mopay-dark-home.png" alt="Mopay Agent Mobile App Screen" class="samsung-screen-img">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Minimalist Segmented Tabs -->
+      <div class="segmented-control mt-6">
+        <button type="button" class="segmented-tab active" data-screen="assets/projects/mopay/mopay-dark-home.png">Dark UI</button>
+        <button type="button" class="segmented-tab" data-screen="assets/projects/mopay/mopay-light-home.png">Light UI</button>
+        <button type="button" class="segmented-tab" data-screen="assets/projects/mopay/mopay-history.png">History</button>
+        <button type="button" class="segmented-tab" data-screen="assets/projects/mopay/mopay-settings.png">Settings</button>
+      </div>
+    </div>
+
+    <!-- Right Column: Human-friendly description -->
+    <div class="lg:w-7/12 w-full flex flex-col justify-between">
+      <div>
+        <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2">Mopay Agent</h3>
+        <p class="text-amber-400/90 text-xs uppercase tracking-wider mb-4">Mobile Money App for Agents</p>
+        
+        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
+          An Android app built for mobile money agents in Ghana. It replaces slow USSD dial codes and handwritten paper records with quick transaction shortcuts, automatic network detection (MTN, Telecel, AT), and instant profit calculations.
+        </p>
+
+        <!-- Metrics Strip -->
+        <div class="grid grid-cols-3 gap-3 mb-6">
+          <div class="metric-tile">
+            <div class="metric-tile-val text-amber-400">100+</div>
+            <div class="metric-tile-lbl">Active Agents</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">&lt; 4s</div>
+            <div class="metric-tile-lbl">Fast Transactions</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val text-emerald-400">Offline</div>
+            <div class="metric-tile-lbl">Record Keeping</div>
+          </div>
+        </div>
+
+        <!-- Tech Stack Badges -->
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="tech-pill">Kotlin</span>
+          <span class="tech-pill">Jetpack Compose</span>
+          <span class="tech-pill">Offline SQLite</span>
+          <span class="tech-pill">USSD Automation</span>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-4 pt-5 border-t border-white/[0.06]">
+        <button type="button" class="open-case-study-btn px-4 py-2 bg-white text-zinc-950 font-semibold text-xs tracking-wider uppercase rounded-lg hover:bg-zinc-200 transition-colors flex items-center gap-2 cursor-pointer">
+          <i class="ri-file-text-line text-sm"></i>
+          <span>View Details</span>
+          <i class="ri-arrow-right-line text-sm"></i>
+        </button>
+        <span class="text-xs text-zinc-400 hidden sm:inline-block">In Active Production</span>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- 02. Flagship Mobile Hero: FlowFi -->
+<div class="portfolio-item col-span-1 lg:col-span-12 spotlight-card tech-grid-bg p-6 sm:p-10 opacity-0 transform translate-y-10 transition-all duration-1000" data-category="mobile" id="portfolio-flowfi">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-8 border-b border-white/[0.06]">
+    <div class="flex items-center gap-3">
+      <span class="mono-badge">
+        <span class="status-dot pulse" style="background:#06b6d4; box-shadow:0 0 8px rgba(6,182,212,0.7);"></span>
+        02 / MOBILE APP
+      </span>
+      <span class="text-xs text-zinc-400 hidden sm:inline-block">Android • AI & Graphics</span>
+    </div>
+    <div class="flex items-center gap-2 text-xs text-cyan-400">
+      <i class="ri-sparkling-fill"></i>
+      <span>Google Gemini AI</span>
+    </div>
+  </div>
+
+  <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+    <!-- Left Column: Samsung Galaxy S Ultra Titanium Mockup -->
+    <div class="lg:w-5/12 w-full flex flex-col items-center">
+      <div class="samsung-ultra-wrapper">
+        <div class="samsung-ultra-frame" style="box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 0 0 3px #1d1d23, 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 40px rgba(6, 182, 212, 0.15);">
+          <div class="samsung-camera-punchhole"></div>
+          <div class="samsung-glass-sheen"></div>
+          <div class="samsung-screen-container">
+            <img id="flowfi-screen-display" src="assets/projects/flowfi/flowfi-dashboard.png" alt="FlowFi Mobile App Screen" class="samsung-screen-img">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Minimalist Segmented Tabs -->
+      <div class="segmented-control mt-6">
+        <button type="button" class="segmented-tab flowfi-tab active" data-screen="assets/projects/flowfi/flowfi-dashboard.png">Liquid Dashboard</button>
+        <button type="button" class="segmented-tab flowfi-tab" data-screen="assets/projects/flowfi/flowfi-add-expense.png">AI Receipt Scan</button>
+      </div>
+    </div>
+
+    <!-- Right Column: Human-friendly description -->
+    <div class="lg:w-7/12 w-full flex flex-col justify-between">
+      <div>
+        <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2">FlowFi</h3>
+        <p class="text-cyan-400/90 text-xs uppercase tracking-wider mb-4">Smart Budgeting & Expense Tracker</p>
+        
+        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
+          A personal finance app that makes budgeting intuitive and visual. It uses Google Gemini AI to scan paper receipts from photos, shows spending capacity through smooth visual animations, and alerts you before you overspend.
+        </p>
+
+        <!-- Technical Spec Metrics Strip -->
+        <div class="grid grid-cols-3 gap-3 mb-6">
+          <div class="metric-tile">
+            <div class="metric-tile-val text-cyan-400">Gemini AI</div>
+            <div class="metric-tile-lbl">Receipt Scanner</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">Visual</div>
+            <div class="metric-tile-lbl">Spend Tracking</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val text-emerald-400">Private</div>
+            <div class="metric-tile-lbl">Stored on Device</div>
+          </div>
+        </div>
+
+        <!-- Tech Stack Badges -->
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="tech-pill">Kotlin</span>
+          <span class="tech-pill">Jetpack Compose</span>
+          <span class="tech-pill">Google Gemini AI</span>
+          <span class="tech-pill">Offline Storage</span>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-4 pt-5 border-t border-white/[0.06]">
+        <button type="button" class="open-flowfi-modal-btn px-4 py-2 bg-cyan-400 text-zinc-950 font-semibold text-xs tracking-wider uppercase rounded-lg hover:bg-cyan-300 transition-colors flex items-center gap-2 cursor-pointer">
+          <i class="ri-file-text-line text-sm"></i>
+          <span>View Details</span>
+          <i class="ri-arrow-right-line text-sm"></i>
+        </button>
+        <span class="text-xs text-zinc-400 hidden sm:inline-block">AI & Mobile App</span>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- 03. Flagship Healthcare SaaS Hero: Eyecare MS Hospital Platform -->
+<div class="portfolio-item col-span-1 lg:col-span-12 spotlight-card p-6 sm:p-10 opacity-0 transform translate-y-10 transition-all duration-1000" data-category="web" id="portfolio-eyecare">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-white/[0.06]">
+    <div class="flex items-center gap-3">
+      <span class="mono-badge">
+        <span class="status-dot" style="background:#38bdf8; box-shadow:0 0 8px rgba(56,189,248,0.7);"></span>
+        03 / HEALTHCARE SOFTWARE
+      </span>
+      <span class="text-xs text-zinc-400 hidden sm:inline-block">Hospital Management System</span>
+    </div>
+    <div class="flex items-center gap-2 text-xs text-sky-400">
+      <i class="ri-hospital-line"></i>
+      <span>In Use at Xcel Opticals Ltd</span>
+    </div>
+  </div>
+
+  <!-- Studio Browser Window Mockup -->
+  <div class="studio-browser mb-8">
+    <div class="studio-browser-bar">
+      <div class="studio-window-dots">
+        <span class="studio-window-dot dot-close"></span>
+        <span class="studio-window-dot dot-min"></span>
+        <span class="studio-window-dot dot-max"></span>
+      </div>
+      <div class="studio-url-pill">
+        <i class="ri-lock-line text-emerald-400 text-xs"></i>
+        <span>https://eyecaregh.com/</span>
+      </div>
+      <span class="text-[10px] text-zinc-400 hidden sm:inline-block">6,200+ Patient Records</span>
+    </div>
+    <div class="relative overflow-hidden bg-zinc-950 w-full aspect-[16/9] sm:aspect-[21/10]">
+      <img src="assets/projects/eyecare/eyecare-dashboard.png" alt="Eyecare MS Hospital Platform" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-[1.01]">
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <div class="lg:col-span-8">
+      <p class="text-xs text-sky-400 uppercase tracking-wider mb-2">Hospital & Clinic Management</p>
+      <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-3">Eyecare MS Hospital Suite</h3>
+      <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
+        A complete hospital management system currently in daily use at Xcel Opticals Ltd, managing records for over 6,200 patients. It handles patient appointments, eye test records, medical scans, optical shop sales, and staff access controls.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <span class="tech-pill">React</span>
+        <span class="tech-pill">Patient Records</span>
+        <span class="tech-pill">Eye Scan Imaging</span>
+        <span class="tech-pill">Billing & POS</span>
+      </div>
+    </div>
+    <div class="lg:col-span-4 flex flex-col justify-between gap-4 h-full">
+      <div class="grid grid-cols-2 gap-3">
+        <div class="metric-tile">
+          <div class="metric-tile-val text-sky-400">6,200+</div>
+          <div class="metric-tile-lbl">Patient Records</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-tile-val">Eye Tests</div>
+          <div class="metric-tile-lbl">Retinal Scans</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-tile-val">All-in-One</div>
+          <div class="metric-tile-lbl">Records & POS</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-tile-val text-emerald-400">Active</div>
+          <div class="metric-tile-lbl">In Daily Hospital Use</div>
+        </div>
+      </div>
+      <a href="https://eyecaregh.com/" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 bg-white/[0.08] hover:bg-white/[0.14] text-white text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all duration-200">
+        <span>Visit Hospital Portal</span>
+        <i class="ri-external-link-line"></i>
+      </a>
+    </div>
+  </div>
 </div>
+
+<!-- 04. Curated Bento: EasyPulpit Presenter Suite (Desktop Software) -->
+<div class="portfolio-item col-span-1 lg:col-span-6 spotlight-card p-6 sm:p-8 flex flex-col justify-between opacity-0 transform translate-y-10 transition-all duration-1000" data-category="desktop" id="portfolio-easypulpit">
+  <div>
+    <div class="flex items-center justify-between gap-2 pb-4 mb-5 border-b border-white/[0.06]">
+      <span class="mono-badge">
+        <span class="status-dot" style="background:#f43f5e; box-shadow:0 0 8px rgba(244,63,94,0.7);"></span>
+        04 / DESKTOP SOFTWARE
+      </span>
+      <span class="text-xs text-zinc-400">Presentation & Media</span>
+    </div>
+
+    <!-- Studio Window Header -->
+    <div class="studio-browser mb-6">
+      <div class="studio-browser-bar">
+        <div class="studio-window-dots">
+          <span class="studio-window-dot dot-close"></span>
+          <span class="studio-window-dot dot-min"></span>
+          <span class="studio-window-dot dot-max"></span>
+        </div>
+        <div class="studio-url-pill">
+          <span>EasyPulpit Presentation Software</span>
+        </div>
+      </div>
+      <div class="relative overflow-hidden bg-zinc-950 w-full aspect-[16/10]">
+        <img src="assets/projects/easypulpit/easypulpit-suite.png" alt="EasyPulpit Presenter Suite" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-[1.02]">
+      </div>
+    </div>
+
+    <h3 class="text-2xl font-bold tracking-tight text-white mb-2">EasyPulpit Presenter Suite</h3>
+    <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+      A dedicated presentation software designed for churches, conferences, and live events. It lets teams easily project lyrics, Bible scriptures, and announcements onto main screens while showing notes on a private stage display.
+    </p>
+
+    <!-- Spec Metrics -->
+    <div class="grid grid-cols-3 gap-2.5 mb-6">
+      <div class="metric-tile">
+        <div class="metric-tile-val text-rose-400">Dual Screen</div>
+        <div class="metric-tile-lbl">Multi-Display</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-val">Offline</div>
+        <div class="metric-tile-lbl">No Internet Needed</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-val text-emerald-400">Fast</div>
+        <div class="metric-tile-lbl">Smooth Transitions</div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-6">
+      <span class="tech-pill">Desktop App</span>
+      <span class="tech-pill">Dual Display</span>
+      <span class="tech-pill">Offline Ready</span>
+      <span class="tech-pill">Scripture Search</span>
+    </div>
+  </div>
+
+  <div class="pt-4 border-t border-white/[0.06]">
+    <div class="w-full py-2.5 px-4 bg-white/[0.04] border border-white/[0.06] text-zinc-400 text-xs rounded-lg flex items-center justify-center gap-2">
+      <i class="ri-computer-line text-rose-400"></i>
+      <span>Desktop Presentation Software</span>
+    </div>
+  </div>
 </div>
-<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="cloud" id="portfolio-2" style="transition-delay: 200ms;">
-<div class="glass rounded overflow-hidden card-hover">
-<div class="relative h-64 overflow-hidden">
-<img src="Deployment with AWS Amplify.png" alt="Cloud Hosting & Deployment" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
-<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-eye-line text-white"></i>
+
+<!-- 05. Curated Bento: Last Price Store (Web & SaaS) -->
+<div class="portfolio-item col-span-1 lg:col-span-6 spotlight-card p-6 sm:p-8 flex flex-col justify-between opacity-0 transform translate-y-10 transition-all duration-1000" data-category="web" id="portfolio-lastprice">
+  <div>
+    <div class="flex items-center justify-between gap-2 pb-4 mb-5 border-b border-white/[0.06]">
+      <span class="mono-badge">
+        <span class="status-dot" style="background:#f59e0b; box-shadow:0 0 8px rgba(245,158,11,0.7);"></span>
+        05 / WEB PLATFORM
+      </span>
+      <span class="text-xs text-zinc-400">Price Comparison</span>
+    </div>
+
+    <!-- Studio Browser Header with Switcher Tabs -->
+    <div class="studio-browser mb-6">
+      <div class="studio-browser-bar">
+        <div class="studio-window-dots">
+          <span class="studio-window-dot dot-close"></span>
+          <span class="studio-window-dot dot-min"></span>
+          <span class="studio-window-dot dot-max"></span>
+        </div>
+        <div class="studio-url-pill">
+          <i class="ri-lock-line text-emerald-400 text-xs"></i>
+          <span>https://last-price.store/</span>
+        </div>
+        <!-- Segmented Screen Switcher -->
+        <div class="flex gap-1">
+          <button type="button" class="lastprice-tab px-2 py-0.5 text-[10px] rounded transition-colors bg-white/10 text-white active" data-screen="assets/projects/lastprice/lastprice-home.png">Home</button>
+          <button type="button" class="lastprice-tab px-2 py-0.5 text-[10px] rounded transition-colors text-zinc-400 hover:text-white" data-screen="assets/projects/lastprice/lastprice-deals-light.png">Deals (Light)</button>
+          <button type="button" class="lastprice-tab px-2 py-0.5 text-[10px] rounded transition-colors text-zinc-400 hover:text-white" data-screen="assets/projects/lastprice/lastprice-deals-dark.png">Deals (Dark)</button>
+        </div>
+      </div>
+      <div class="relative overflow-hidden bg-zinc-950 w-full aspect-[16/10]">
+        <img id="lastprice-screen-display" src="assets/projects/lastprice/lastprice-home.png" alt="Last Price Store Platform" class="w-full h-full object-cover object-top transition-all duration-300">
+      </div>
+    </div>
+
+    <h3 class="text-2xl font-bold tracking-tight text-white mb-2">Last Price Store</h3>
+    <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+      An online shopping platform that helps buyers find the best deals on electronics in Ghana. It automatically compares prices across major stores like CompuGhana, Oraimo, and Melcom, helping shoppers save money on phones, laptops, and gadgets.
+    </p>
+
+    <!-- Spec Metrics -->
+    <div class="grid grid-cols-3 gap-2.5 mb-6">
+      <div class="metric-tile">
+        <div class="metric-tile-val text-amber-400">4+ Stores</div>
+        <div class="metric-tile-lbl">Price Comparison</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-val">Live</div>
+        <div class="metric-tile-lbl">Deal Alerts</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-val text-emerald-400">Dual Theme</div>
+        <div class="metric-tile-lbl">Light & Dark Modes</div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-6">
+      <span class="tech-pill">React</span>
+      <span class="tech-pill">Node.js</span>
+      <span class="tech-pill">Price Comparison</span>
+      <span class="tech-pill">Tailwind CSS</span>
+    </div>
+  </div>
+
+  <div class="pt-4 border-t border-white/[0.06]">
+    <a href="https://last-price.store/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-white/[0.08] hover:bg-white/[0.14] text-white text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all duration-200">
+      <span>Visit Website</span>
+      <i class="ri-external-link-line"></i>
+    </a>
+  </div>
 </div>
-</a>
+
+<!-- 06. Curated Bento: MCF Optiques (Web & SaaS) -->
+<div class="portfolio-item col-span-1 lg:col-span-4 spotlight-card p-6 flex flex-col justify-between opacity-0 transform translate-y-10 transition-all duration-1000" data-category="web" id="portfolio-mcfoptiques">
+  <div>
+    <div class="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-white/[0.06]">
+      <span class="mono-badge">06 / CLINIC WEBSITE</span>
+    </div>
+
+    <div class="studio-browser mb-4">
+      <div class="studio-browser-bar">
+        <div class="studio-window-dots">
+          <span class="studio-window-dot dot-close"></span>
+          <span class="studio-window-dot dot-min"></span>
+          <span class="studio-window-dot dot-max"></span>
+        </div>
+        <div class="studio-url-pill text-[10px]">mcfoptiques.com</div>
+      </div>
+      <div class="relative overflow-hidden bg-zinc-950 w-full aspect-[16/10]">
+        <img src="assets/projects/mcf/mcf-home.png" alt="MCF Optiques Platform" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-[1.02]">
+      </div>
+    </div>
+
+    <h3 class="text-xl font-bold tracking-tight text-white mb-2">MCF Optiques</h3>
+    <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4">
+      A modern website for an optical clinic and eyewear shop. Patients can browse glasses frames, book eye exam appointments online, and message the clinic directly through WhatsApp.
+    </p>
+
+    <div class="flex flex-wrap gap-1.5 mb-6">
+      <span class="tech-pill">React</span>
+      <span class="tech-pill">Tailwind CSS</span>
+      <span class="tech-pill">Online Booking</span>
+    </div>
+  </div>
+
+  <div class="pt-3 border-t border-white/[0.06]">
+    <a href="https://mcfoptiques.com/" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 bg-white/[0.08] hover:bg-white/[0.14] text-white text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all duration-200">
+      <span>Visit Website</span>
+      <i class="ri-external-link-line"></i>
+    </a>
+  </div>
 </div>
+
+<!-- 07. Curated Bento: Little Eden School Portal (Web & SaaS) -->
+<div class="portfolio-item col-span-1 lg:col-span-4 spotlight-card p-6 flex flex-col justify-between opacity-0 transform translate-y-10 transition-all duration-1000" data-category="web" id="portfolio-littleeden">
+  <div>
+    <div class="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-white/[0.06]">
+      <span class="mono-badge">07 / SCHOOL WEBSITE</span>
+    </div>
+
+    <div class="studio-browser mb-4">
+      <div class="studio-browser-bar">
+        <div class="studio-window-dots">
+          <span class="studio-window-dot dot-close"></span>
+          <span class="studio-window-dot dot-min"></span>
+          <span class="studio-window-dot dot-max"></span>
+        </div>
+        <div class="studio-url-pill text-[10px]">littleedenschool.com</div>
+      </div>
+      <div class="relative overflow-hidden bg-zinc-950 w-full aspect-[16/10]">
+        <img src="assets/projects/littleeden/littleeden-home.png" alt="Little Eden School Portal" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-[1.02]">
+      </div>
+    </div>
+
+    <h3 class="text-xl font-bold tracking-tight text-white mb-2">Little Eden School Portal</h3>
+    <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4">
+      An official school website for pupils from crèche through primary school. Provides parents with online admission forms, term calendars, curriculum information, and campus photo galleries.
+    </p>
+
+    <div class="flex flex-wrap gap-1.5 mb-6">
+      <span class="tech-pill">HTML5 / CSS3</span>
+      <span class="tech-pill">JavaScript</span>
+      <span class="tech-pill">Online Admissions</span>
+    </div>
+  </div>
+
+  <div class="pt-3 border-t border-white/[0.06]">
+    <a href="https://littleedenschool.com/" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 bg-white/[0.08] hover:bg-white/[0.14] text-white text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all duration-200">
+      <span>Visit Website</span>
+      <i class="ri-external-link-line"></i>
+    </a>
+  </div>
 </div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Cloud Hosting & Deployment</h3>
-<p class="text-gray-300 mb-4">
-Successfully delivered a modern, responsive website with minimal configuration overhead, showcasing expertise in cloud deployment automation and scalable hosting solutions.
-</p>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AWS Amplify</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">S3</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">HTML</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">CSS</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">JavaScript</span>
+
+<!-- 08. Curated Bento: Dezag Insurance Brokers (Web & SaaS) -->
+<div class="portfolio-item col-span-1 lg:col-span-4 spotlight-card p-6 flex flex-col justify-between opacity-0 transform translate-y-10 transition-all duration-1000" data-category="web" id="portfolio-dezag">
+  <div>
+    <div class="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-white/[0.06]">
+      <span class="mono-badge">08 / CORPORATE WEBSITE</span>
+    </div>
+
+    <div class="studio-browser mb-4">
+      <div class="studio-browser-bar">
+        <div class="studio-window-dots">
+          <span class="studio-window-dot dot-close"></span>
+          <span class="studio-window-dot dot-min"></span>
+          <span class="studio-window-dot dot-max"></span>
+        </div>
+        <div class="studio-url-pill text-[10px]">dezaginsurance.com</div>
+      </div>
+      <div class="relative overflow-hidden bg-zinc-950 w-full aspect-[16/10]">
+        <img src="Dezag Homepage.png" alt="Dezag Insurance Brokers Website" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-[1.02]">
+      </div>
+    </div>
+
+    <h3 class="text-xl font-bold tracking-tight text-white mb-2">Dezag Insurance Brokers</h3>
+    <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4">
+      A corporate website for an insurance brokerage firm, presenting their commercial insurance packages, risk advisory services, and policy inquiry forms.
+    </p>
+
+    <div class="flex flex-wrap gap-1.5 mb-6">
+      <span class="tech-pill">HTML5 / CSS3</span>
+      <span class="tech-pill">JavaScript</span>
+      <span class="tech-pill">Responsive Design</span>
+    </div>
+  </div>
+
+  <div class="pt-3 border-t border-white/[0.06]">
+    <a href="#contact" class="w-full py-2 px-3 bg-white/[0.08] hover:bg-white/[0.14] text-white text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all duration-200">
+      <span>Get in Touch</span>
+      <i class="ri-mail-send-line"></i>
+    </a>
+  </div>
 </div>
+
 </div>
+
+<!-- Bottom Inquiry CTA -->
+<div class="text-center mt-16 opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-more">
+  <div class="inline-flex flex-col sm:flex-row items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-md">
+    <span class="text-xs text-zinc-300">Have a project in mind?</span>
+    <a href="#contact" class="px-5 py-2 rounded-lg bg-white text-zinc-950 text-xs font-semibold uppercase tracking-wider hover:bg-zinc-200 transition-colors inline-flex items-center gap-2">
+      <span>Contact Me</span>
+      <i class="ri-arrow-right-line"></i>
+    </a>
+  </div>
 </div>
-</div>
-<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="web" id="portfolio-3" style="transition-delay: 400ms;">
-<div class="glass rounded overflow-hidden card-hover">
-<div class="relative h-64 overflow-hidden">
-<img src="Dezag Homepage.png" alt="Dezag Insurance Brokers Website" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
-<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-eye-line text-white"></i>
-</div>
-</a>
-</div>
-</div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Dezag Insurance Brokers Website</h3>
-<p class="text-gray-300 mb-4">
-Professional website for insurance brokerage services, providing comprehensive information about insurance products and client services.
-</p>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">HTML</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">CSS</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">JavaScript</span>
-</div>
-</div>
-</div>
-</div>
-<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="app" id="portfolio-4" style="transition-delay: 600ms;">
-<div class="glass rounded overflow-hidden card-hover">
-<div class="relative h-64 overflow-hidden">
-<img src="Compass (Custom).png" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
-<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-eye-line text-white"></i>
-</div>
-</a>
-</div>
-</div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Compass App</h3>
-<p class="text-gray-300 mb-4">
-Developed a lightweight Android application that serves as a digital compass, utilizing the device's built-in accelerometer and magnetometer sensors.
-</p>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Java/Kotlin</span>
-</div>
-</div>
-</div>
-</div>
-<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="security" id="portfolio-5" style="transition-delay: 800ms;">
-<div class="glass rounded overflow-hidden card-hover">
-<div class="relative h-64 overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=secure%20authentication%20system%20interface%2C%20multi-factor%20authentication%20visualization%2C%20biometric%20security%2C%20identity%20verification%20process%2C%20professional%20cybersecurity%20solution%2C%20access%20control%20dashboard&width=600&height=400&seq=6&orientation=landscape" alt="Secure Authentication System" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
-<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-eye-line text-white"></i>
-</div>
-</a>
-</div>
-</div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Secure Authentication System</h3>
-<p class="text-gray-300 mb-4">
-Developed a multi-factor authentication system with biometric verification for a financial institution.
-</p>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">OAuth</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Biometrics</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Encryption</span>
-</div>
-</div>
-</div>
-</div>
-<div class="portfolio-item opacity-0 transform translate-y-10 transition-all duration-1000" data-category="cloud" id="portfolio-6" style="transition-delay: 1000ms;">
-<div class="glass rounded overflow-hidden card-hover">
-<div class="relative h-64 overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=serverless%20architecture%20diagram%2C%20microservices%20infrastructure%2C%20AWS%20Lambda%20functions%20visualization%2C%20cloud-native%20application%20design%2C%20technical%20illustration%20of%20event-driven%20architecture&width=600&height=400&seq=7&orientation=landscape" alt="Serverless Architecture" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
-<div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-<div class="w-6 h-6 flex items-center justify-center">
-<i class="ri-eye-line text-white"></i>
-</div>
-</a>
-</div>
-</div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Serverless Architecture</h3>
-<p class="text-gray-300 mb-4">
-Designed a serverless microservices architecture for a SaaS platform, reducing operational costs by 40%.
-</p>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AWS Lambda</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">API Gateway</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">DynamoDB</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="text-center mt-12 opacity-0 transform translate-y-10 transition-all duration-1000" id="portfolio-more">
-<a href="#" class="px-8 py-3 border border-primary/30 text-white rounded-button inline-block hover:bg-primary/10 transition-all duration-300 !rounded-button whitespace-nowrap">
-View More Projects
-</a>
-</div>
+
 </div>
 </section>
 <section class="py-20 bg-gradient relative" id="experience">
@@ -974,7 +1349,7 @@ Send Message
 </div>
 <div>
 <h4 class="font-medium mb-1">Email</h4>
-<p class="text-gray-300">killiansarsah@gmailcom</p>
+<p class="text-gray-300">killiansarsah@gmail.com</p>
 </div>
 </div>
 <div class="flex items-start">
@@ -1069,7 +1444,331 @@ Send Message
 </div>
 </div>
 </div>
-</footer>
+<!-- ==========================================================================
+     Mopay Agent Case Study Modal
+     ========================================================================== -->
+<div class="case-study-backdrop" id="agentpay-modal" aria-hidden="true">
+  <div class="case-study-card p-6 sm:p-10 relative">
+    <!-- Close button -->
+    <button type="button" class="close-case-study-btn absolute top-6 right-6 w-9 h-9 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] text-zinc-400 hover:text-white flex items-center justify-center transition-colors duration-150 z-10 cursor-pointer" aria-label="Close modal">
+      <i class="ri-close-line text-xl"></i>
+    </button>
+    
+    <!-- Modal Header -->
+    <div class="mb-8 pr-12">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="mono-badge">
+          <span class="status-dot"></span>
+          01 / MOBILE APP CASE STUDY
+        </span>
+        <span class="tech-pill">MOBILE MONEY IN GHANA</span>
+        <span class="tech-pill text-emerald-400 border-emerald-500/20">100+ ACTIVE AGENTS</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-2">Mopay Agent</h2>
+      <p class="text-sm sm:text-base text-zinc-400">Fast, error-free mobile money transaction app built for field agents across Ghana</p>
+    </div>
+
+    <!-- Section 1: Project Overview -->
+    <div class="modal-section-divider">01 // Project Overview</div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+      <div class="lg:col-span-8 space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
+        <p>
+          In Ghana's fast-moving mobile money economy, field agents handle hundreds of daily Cash In, Cash Out, and Airtime transactions under extreme time pressure and bright outdoor conditions. The standard process relies on slow, timeout-prone carrier USSD menus (<code class="text-amber-400 text-xs">*170#</code>, <code class="text-amber-400 text-xs">*110#</code>) and error-prone physical record books.
+        </p>
+        <p>
+          Mopay Agent replaces this hassle with a fast, easy-to-use Android app. It automatically detects whether a phone number is MTN, Telecel, or AirtelTigo, calculates commission profits instantly, and runs USSD transactions automatically without manual dial errors.
+        </p>
+      </div>
+
+      <div class="lg:col-span-4 grid grid-cols-2 gap-3">
+        <div class="metric-tile">
+          <div class="metric-tile-val text-amber-400">100+</div>
+          <div class="metric-tile-lbl">Active Agents</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-tile-val">&lt; 4s</div>
+          <div class="metric-tile-lbl">Transaction Time</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-tile-val text-emerald-400">100%</div>
+          <div class="metric-tile-lbl">Calculation Accuracy</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-tile-val">Offline</div>
+          <div class="metric-tile-lbl">Works Without Internet</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: App Screenshots -->
+    <div class="modal-section-divider">02 // App Screenshots</div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+      <div class="rounded-xl p-2.5 bg-zinc-950/80 border border-white/[0.08] hover:border-white/[0.18] transition-colors">
+        <img src="assets/projects/mopay/mopay-dark-home.png" alt="Dark Mode Home" class="rounded-lg w-full h-auto object-cover mb-2.5 aspect-[9/19.5]">
+        <div class="text-[11px] font-semibold text-white">Dark Transaction UI</div>
+        <div class="text-[10px] text-zinc-500">Easy to read in bright outdoor sun</div>
+      </div>
+      <div class="rounded-xl p-2.5 bg-zinc-950/80 border border-white/[0.08] hover:border-white/[0.18] transition-colors">
+        <img src="assets/projects/mopay/mopay-light-home.png" alt="Light Mode Home" class="rounded-lg w-full h-auto object-cover mb-2.5 aspect-[9/19.5]">
+        <div class="text-[11px] font-semibold text-white">Light Mode UI</div>
+        <div class="text-[10px] text-zinc-500">Clean high-contrast theme</div>
+      </div>
+      <div class="rounded-xl p-2.5 bg-zinc-950/80 border border-white/[0.08] hover:border-white/[0.18] transition-colors">
+        <img src="assets/projects/mopay/mopay-history.png" alt="History Screen" class="rounded-lg w-full h-auto object-cover mb-2.5 aspect-[9/19.5]">
+        <div class="text-[11px] font-semibold text-white">Transaction Ledger</div>
+        <div class="text-[10px] text-zinc-500">Instant search & daily totals</div>
+      </div>
+      <div class="rounded-xl p-2.5 bg-zinc-950/80 border border-white/[0.08] hover:border-white/[0.18] transition-colors">
+        <img src="assets/projects/mopay/mopay-settings.png" alt="Settings & Security" class="rounded-lg w-full h-auto object-cover mb-2.5 aspect-[9/19.5]">
+        <div class="text-[11px] font-semibold text-white">Security & Routing</div>
+        <div class="text-[10px] text-zinc-500">Scam detection & PIN protection</div>
+      </div>
+    </div>
+
+    <!-- Section 3: Key Features -->
+    <div class="modal-section-divider">03 // Key Features & Benefits</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+      <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+        <div class="text-xs text-amber-400 uppercase tracking-wider mb-1">01 / FAST TRANSACTIONS</div>
+        <h4 class="font-bold text-white text-base mb-2">One-Tap USSD Automation</h4>
+        <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          Replaces slow multi-step dial codes (*170#, *110#) with one-tap actions, reducing transaction time from 45 seconds down to under 4 seconds.
+        </p>
+      </div>
+
+      <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+        <div class="text-xs text-amber-400 uppercase tracking-wider mb-1">02 / NETWORK DETECTION</div>
+        <h4 class="font-bold text-white text-base mb-2">Automatic Network Identification</h4>
+        <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          Instantly identifies whether a customer's number is MTN, Telecel, or AirtelTigo as you type, preventing accidental transfers to the wrong network.
+        </p>
+      </div>
+
+      <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+        <div class="text-xs text-amber-400 uppercase tracking-wider mb-1">03 / OFFLINE RECORD KEEPING</div>
+        <h4 class="font-bold text-white text-base mb-2">Offline Records & Profit Tracker</h4>
+        <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          Saves every cash-in, cash-out, and airtime sale right on the phone. Agents can search records and view daily profit summaries anytime, even without internet access.
+        </p>
+      </div>
+
+      <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+        <div class="text-xs text-amber-400 uppercase tracking-wider mb-1">04 / FRAUD PROTECTION</div>
+        <h4 class="font-bold text-white text-base mb-2">Scam Number & Safety Alerts</h4>
+        <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          Maintains a warning list of known scam numbers and suspicious transactions, alerting the agent before any money is sent.
+        </p>
+      </div>
+    </div>
+
+    <!-- Section 4: Built With -->
+    <div class="modal-section-divider">04 // Built With</div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Language</div>
+        <div class="text-sm font-bold text-white mt-1">Kotlin</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Android Native</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">UI Framework</div>
+        <div class="text-sm font-bold text-white mt-1">Jetpack Compose</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Modern Android UI</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Architecture</div>
+        <div class="text-sm font-bold text-white mt-1">Clean MVVM</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Structured & Reliable</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Persistence</div>
+        <div class="text-sm font-bold text-white mt-1">SQLite / Room</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Offline-First Database</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Navigation</div>
+        <div class="text-sm font-bold text-white mt-1">Compose Navigation</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Smooth Screen Flow</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Telephony API</div>
+        <div class="text-sm font-bold text-white mt-1">Android Telephony</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">USSD Automation</div>
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-6 border-t border-white/[0.08] flex items-center justify-between">
+      <span class="text-xs text-zinc-400">Status: Active in Production • Ghana</span>
+      <button type="button" class="close-case-study-btn px-5 py-2 bg-white/[0.08] hover:bg-white/[0.14] text-white text-xs uppercase tracking-wider rounded-lg transition-colors cursor-pointer">
+        Close
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==========================================================================
+     FlowFi Case Study Modal
+     ========================================================================== -->
+<div class="case-study-backdrop" id="flowfi-modal" aria-hidden="true">
+  <div class="case-study-card p-6 sm:p-10 relative">
+    <!-- Close button -->
+    <button type="button" class="close-flowfi-modal-btn absolute top-6 right-6 w-9 h-9 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] text-zinc-400 hover:text-white flex items-center justify-center transition-colors duration-150 z-10 cursor-pointer" aria-label="Close modal">
+      <i class="ri-close-line text-xl"></i>
+    </button>
+    
+    <!-- Modal Header -->
+    <div class="mb-8 pr-12">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="mono-badge">
+          <span class="status-dot" style="background:#06b6d4; box-shadow:0 0 8px rgba(6,182,212,0.7);"></span>
+          02 / MOBILE APP CASE STUDY
+        </span>
+        <span class="tech-pill">GOOGLE GEMINI AI</span>
+        <span class="tech-pill text-cyan-400 border-cyan-500/20">VISUAL BUDGETING</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-2">FlowFi</h2>
+      <p class="text-sm sm:text-base text-zinc-400">Smart budgeting and personal expense tracker powered by Google Gemini AI</p>
+    </div>
+
+    <!-- Section 1: Project Overview -->
+    <div class="modal-section-divider">01 // Project Overview</div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+      <div class="lg:col-span-8 space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
+        <p>
+          Most budgeting apps are frustrating to use because typing in every receipt by hand takes too much time, and dense spreadsheets make it hard to see how much money you really have left.
+        </p>
+        <p>
+          FlowFi makes tracking expenses effortless and visual. Instead of rigid spreadsheets, spending categories are shown as animated water pools that lower as you spend. Powered by <strong>Google Gemini AI</strong>, you simply snap a photo of any receipt and FlowFi automatically reads the store, date, items, and total amount—with zero manual typing.
+        </p>
+      </div>
+
+      <div class="lg:col-span-4 grid grid-cols-2 gap-3">
+        <div class="metric-tile">
+          <div class="metric-tile-val text-cyan-400">Gemini AI</div>
+          <div class="metric-tile-lbl">Receipt Scanner</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-tile-val">Visual</div>
+          <div class="metric-tile-lbl">Budget Tracking</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-tile-val text-emerald-400">100%</div>
+          <div class="metric-tile-lbl">Private On-Device</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-tile-val">Smart</div>
+          <div class="metric-tile-lbl">Overspending Alerts</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: App Screenshots -->
+    <div class="modal-section-divider">02 // App Screenshots</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
+      <div class="rounded-xl p-3 bg-zinc-950/80 border border-white/[0.08] hover:border-cyan-500/30 transition-colors">
+        <img src="assets/projects/flowfi/flowfi-dashboard.png" alt="Visual Wealth Dashboard" class="rounded-lg w-full h-auto object-cover mb-3 aspect-[9/19.5]">
+        <div class="text-sm font-semibold text-white">Visual Wealth Dashboard & Budget Pools</div>
+        <p class="text-xs text-zinc-400 mt-1">Animated water pools clearly show how much money remains in each spending budget at a glance.</p>
+      </div>
+      <div class="rounded-xl p-3 bg-zinc-950/80 border border-white/[0.08] hover:border-cyan-500/30 transition-colors">
+        <img src="assets/projects/flowfi/flowfi-add-expense.png" alt="AI Receipt Scanner & Auto-Fill" class="rounded-lg w-full h-auto object-cover mb-3 aspect-[9/19.5]">
+        <div class="text-sm font-semibold text-white">AI Receipt Scanner & Auto-Fill</div>
+        <p class="text-xs text-zinc-400 mt-1">Snap a photo of any receipt to automatically pull in merchant details, line items, and totals.</p>
+      </div>
+    </div>
+
+    <!-- Section 3: Key Features -->
+    <div class="modal-section-divider">03 // Key Features & Benefits</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+      <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+        <div class="text-xs text-cyan-400 uppercase tracking-wider mb-1">01 / VISUAL BUDGETING</div>
+        <h4 class="font-bold text-white text-base mb-2">Interactive Spending Pools</h4>
+        <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          See exactly where your money stands through smooth animations that fill with income and drain as you spend.
+        </p>
+      </div>
+
+      <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+        <div class="text-xs text-cyan-400 uppercase tracking-wider mb-1">02 / AI RECEIPT SCANNER</div>
+        <h4 class="font-bold text-white text-base mb-2">Gemini AI Magic Scan</h4>
+        <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          Point your camera at any paper receipt or invoice. FlowFi reads the merchant name, date, items, and total within seconds.
+        </p>
+      </div>
+
+      <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+        <div class="text-xs text-cyan-400 uppercase tracking-wider mb-1">03 / BUDGET WARNINGS</div>
+        <h4 class="font-bold text-white text-base mb-2">Early Overspending Alerts</h4>
+        <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          FlowFi tracks your daily spending pace and notifies you before you exceed your monthly budget limits.
+        </p>
+      </div>
+
+      <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+        <div class="text-xs text-cyan-400 uppercase tracking-wider mb-1">04 / PRIVACY FIRST</div>
+        <h4 class="font-bold text-white text-base mb-2">100% Private On-Device Data</h4>
+        <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          All financial records and budget details stay encrypted directly on your device. Your sensitive data is never shared or sold.
+        </p>
+      </div>
+    </div>
+
+    <!-- Section 4: Built With -->
+    <div class="modal-section-divider">04 // Built With</div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Language</div>
+        <div class="text-sm font-bold text-white mt-1">Kotlin</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Android Native</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">UI Framework</div>
+        <div class="text-sm font-bold text-white mt-1">Compose M3</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Modern Android UI</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">AI Model</div>
+        <div class="text-sm font-bold text-cyan-400 mt-1">Gemini AI</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Receipt Vision OCR</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Persistence</div>
+        <div class="text-sm font-bold text-white mt-1">Room DB</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Encrypted SQLite</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Preferences</div>
+        <div class="text-sm font-bold text-white mt-1">DataStore</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Local Settings</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Background</div>
+        <div class="text-sm font-bold text-white mt-1">WorkManager</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Scheduled Sync</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Networking</div>
+        <div class="text-sm font-bold text-white mt-1">Retrofit</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">API Client</div>
+      </div>
+      <div class="metric-tile">
+        <div class="metric-tile-lbl">Architecture</div>
+        <div class="text-sm font-bold text-white mt-1">MVVM</div>
+        <div class="text-[11px] text-zinc-500 mt-0.5">Clean Architecture</div>
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-6 border-t border-white/[0.08] flex items-center justify-between">
+      <span class="text-xs text-zinc-400">Status: Native Android Application</span>
+      <button type="button" class="close-flowfi-modal-btn px-5 py-2 bg-white/[0.08] hover:bg-white/[0.14] text-white text-xs uppercase tracking-wider rounded-lg transition-colors cursor-pointer">
+        Close
+      </button>
+    </div>
+
+  </div>
+</div>
 
 <!-- Reference to external JavaScript file -->
 <script src="script.js"></script>
